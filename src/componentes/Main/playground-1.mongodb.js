@@ -118,7 +118,7 @@ db.treino.updateOne(
     {
         $set:{
             dia:"Terça",
-          "exercicios.nome": Puxada Alta
+          "exercicios.nome": "Puxada Alta",
             "exercicios.$.serie":4,
             "exercicios.$.repeticoes":15,
             "exercicios.$.peso":80

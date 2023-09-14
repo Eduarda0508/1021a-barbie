@@ -11,7 +11,7 @@ type FilmeType = {
 export default function Main(){
     const [texto,setTexto]=useState("")
 
-    const filmes = [
+    const filmes:FilmeType[] = [
         {
             id:1,
             titulo:'A Sereia das Pérolas',
@@ -38,8 +38,7 @@ export default function Main(){
             imagem:'/barbie moda.jpeg'   
         }
     ]
-
-      function TrataTexto(e:React.ChangeEvent<HTMLInputElement>){
+    function TrataTexto(e:React.ChangeEvent<HTMLInputElement>){
        setTexto(e.target.value)
     }
     return(
@@ -49,8 +48,23 @@ export default function Main(){
             <input type="text" className='botao_pesquisa' placeholder='Pesquise um Filme' onChange={TrataTexto} />
             {!texto && <p>Resultados Para:{texto} </p>}
         </div>
-
+        
         <main className="content-main">
+             {/* 
+                    Use algo do vetor para tentar criar os filmes 
+                */}
+                {
+                    filmes.filter((filme)=>filme.titulo.toLowerCase().includes(texto)).map(
+                        (filme)=>
+                            <Filme 
+                                key={filme.id}
+                                sinopse={filme.sinopse}
+                                titulo={filme.titulo}
+                                imagem={filme.imagem}
+                            />
+                    )
+                }
+
             <Filme titulo= 'A Sereia das Pérolas'
             sinopse='Barbie é Lumina uma linda sereia, que sonha em ser uma princesa. Desde pequena, Lumina tem um poder mágico de fazer as pérolas dançarem e brilharem. '
             imagem='/barbie sereia.jpeg'
