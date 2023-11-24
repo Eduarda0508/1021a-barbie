@@ -1,22 +1,20 @@
-import './Filme.css'
-type FilmeProps = {
+import './filme.css'
+type  FilmeProps={
     titulo:string,
-    sinopse:string,
+    descricao:string,
     imagem:string
+
 }
-function Filme(props:FilmeProps){
+export default function Filme(props:FilmeProps){
     return(
-        <div className="filme-content">
-         <div className="foto_filme">
-         <img className="img-filme" src={props.imagem} alt="" />
-         </div>
-            <div className="texto-foto">
-                <h1>{props.titulo}</h1>
-                <p className="sinopse">
-                {props.sinopse}
-                </p>
+        <div className="filme_container">
+            <div className='foto-filme'>
+              <img src={props.imagem} alt=""/>   
             </div>
-        </div>
+            <div className="texto_foto">
+                <h1>{props.titulo}</h1>
+                <p className="descricao">{props.descricao}</p>
+            </div>
+         </div>
     )
 }
-export default Filme
